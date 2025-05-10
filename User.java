@@ -1,7 +1,10 @@
-public abstract class User {
-    protected String name,id,role;
+import java.io.Serializable;
+
+public abstract class User<T> implements Serializable{
+    protected String name,id;
+    protected Role role;
     protected boolean Payment;
-    public User(String name, String id, String role, boolean Payment) {
+    public User(String name, String id, Role role, boolean Payment) {
         this.name = name;
         this.id = id;
         this.role = role;
@@ -10,8 +13,12 @@ public abstract class User {
     public String getName() {
         return name;
     }
-    public abstract String getRole();
-
+    public Role getRole() {
+        return role;
+    }
+    public String getId() {
+        return id;
+    }
     public abstract double CalculateFare(Vehicle vehicle);
 
     public void makePayment(){
@@ -21,3 +28,4 @@ public abstract class User {
         return Payment;
     }
 }
+
