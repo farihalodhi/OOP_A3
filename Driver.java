@@ -1,4 +1,6 @@
-public class Driver {
+import java.io.Serializable;
+
+public class Driver implements Serializable {
     protected String DriverName;
     protected String license;
     private Vehicle assignedVehicle;
