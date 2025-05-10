@@ -1,4 +1,6 @@
-public class Route {
+import java.io.Serializable;
+
+public class Route implements Serializable {
     protected String start,end;
     protected int distance;
     protected int thresholdDistance;
@@ -16,4 +18,8 @@ public class Route {
             System.out.println("Distance covered is within threshold distance");
         }
     }
+    public String getRoute(){
+        return start + "," + end + "," + distance;
+    }
+
 }
