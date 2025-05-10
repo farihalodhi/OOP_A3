@@ -1,4 +1,7 @@
-public class Seat {
+import java.io.Serializable;
+import java.sql.SQLException;
+
+public class Seat implements Serializable {
     private int seatNo;
     private boolean isBooked;
     private String role;
@@ -10,13 +13,16 @@ public class Seat {
     public int getSeatNo() {
         return seatNo;
     }
-    public void bookSeat(Seat seat) {
-        if (seat.isBooked){
-            System.out.println("Seat is already booked");
+    public boolean isBooked() {
+        return isBooked;
+    }
+    public String getRole() {
+        return role;
+    }
+    public void bookSeat() throws SeatUnavailableException {
+        if(isBooked){
+            throw new SeatUnavailableException("Seat is already booked");
         }
-        else {
-            seat.isBooked = true;
-            System.out.println("seat has been booked");
-        }
+        this.isBooked = true;
     }
 }
